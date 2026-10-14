@@ -1,0 +1,20 @@
+<div class="cab">
+  <div class="estado">
+    @if (enchufado) {
+      <span>Estado conexion electrica: Enchufado</span>
+    } @else {
+      <span>Estado de la conexion: Desenchufado</span>
+    }
+  </div>
+  <div>
+    <span>Estado de la lámpara: {{ estadoLampara }}</span>
+  </div>
+  <div class="boton">
+    @if (enchufado) {
+      <button (click)="onDesenchufar()">Desenchufar</button>
+    } @else {
+      <button (click)="onEnchufar()">Enchufar</button>
+    }
+  </div>
+</div>
+<app-lampara [enchufada]="enchufado" (estadoLampara)="onCambioEstadoLampara($event)"> </app-lampara>
